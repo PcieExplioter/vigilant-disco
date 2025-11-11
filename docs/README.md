@@ -34,7 +34,7 @@ int main() {
 }
 ```
 
-See `src/main.cpp` for a complete working example.
+See `main.cpp` for a complete working example.
 
 ## API
 
@@ -66,13 +66,13 @@ See `src/main.cpp` for a complete working example.
 ### Command Line (MSVC)
 
 ```cmd
-cl /std:c++17 /EHsc /Iinclude /O2 src\*.cpp /Fe:vischeck.exe
+cl /std:c++17 /EHsc /O2 *.cpp /Fe:vischeck.exe
 ```
 
 ### Command Line (GCC/Clang)
 
 ```bash
-g++ -std=c++17 -Iinclude -O2 src/*.cpp -o vischeck
+g++ -std=c++17 -O2 *.cpp -o vischeck
 ```
 
 ## Project Structure
@@ -81,22 +81,14 @@ g++ -std=c++17 -Iinclude -O2 src/*.cpp -o vischeck
 VisCheckStandalone/
 ├── VisCheckStandalone.sln          # Visual Studio solution
 ├── VisCheckStandalone.vcxproj      # Visual Studio project
-├── LICENSE                         # MIT License
+├── main.cpp                        # Example usage
+├── VisCheck.h/cpp                  # Core algorithm
+├── Types.h                         # Vec3 definition
+├── Debug.h                         # Logging macros
+├── Parser.h/cpp                    # Optional .vphys parser
+├── OptimizedGeometry.h/cpp         # Optional .opt format handler
 ├── README.md                       # This file
-├── src/                           # Source files
-│   ├── main.cpp                   # Example usage
-│   ├── VisCheck.cpp               # Core algorithm
-│   ├── Parser.cpp                 # Optional .vphys parser
-│   └── OptimizedGeometry.cpp      # Optional .opt format handler
-├── include/                       # Header files
-│   ├── VisCheck.h                 # Core algorithm
-│   ├── Types.h                    # Vec3 definition
-│   ├── Debug.h                    # Logging macros
-│   ├── Parser.h                   # Optional .vphys parser
-│   └── OptimizedGeometry.h        # Optional .opt format handler
-└── docs/                          # Documentation
-    ├── README.md                  # Detailed documentation
-    └── USAGE.md                   # Usage guide
+└── USAGE.md                        # Detailed usage guide
 ```
 
 ## How It Works
@@ -112,11 +104,11 @@ You must implement your own file loading. Convert your geometry to `std::vector<
 
 Each triangle is defined by three Vec3 vertices (v0, v1, v2).
 
-See `src/main.cpp` for a complete example.
+See `main.cpp` for a complete example.
 
 ## Usage
 
-For detailed usage instructions, see [docs/USAGE.md](docs/USAGE.md).
+For detailed usage instructions, see [USAGE.md](USAGE.md).
 
 Basic usage:
 1. Implement your own file loading to read triangles
@@ -132,4 +124,3 @@ This implementation is based on concepts from:
 ## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
-
